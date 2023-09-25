@@ -5,9 +5,15 @@ import flask
 import os
 
 app = flask.Flask(__name__)
+
+def template_renderer(template: str) -> str:
+	# TODO: Do this without pushing a request context
+	with app.test_request_context():
+		return flask.render_template_string(template)
+
 article_repository = blog.ArticleRepository(
 	os.path.join(app.root_path, app.template_folder),
-	flask.render_template_string
+	template_renderer
 )
 
 app.url_map.converters["article"] = article_repository.converter()
