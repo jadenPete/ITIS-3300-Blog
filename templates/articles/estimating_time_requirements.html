@@ -1,0 +1,172 @@
+<h2>Introduction</h2>
+<p>
+	Project schedule management is a subfield of project management that concerns itself with defining stories (small, dependent chunks of work that collectively constitute the project), sequencing those stories (mapping their interdependence), estimating their time requirements, planning a schedule, and controlling that schedule (putting it into practice and iteratively adjusting it).
+</p>
+
+<p>
+	This article should serve as a comprehensive how-to-guide for the estimation stage. Within it, we'll provide a window into the definition and sequencing stages, contextualizing them within the scope of time requirement estimation. Then, we'll explain story point assignment, covering the benefits of relative and unitless estimations. Following that, we'll delve into various “converging” activities teams can employ to agree on shared estimations. Finally, we'll explain how concrete time requirement estimations can be derived by tracking velocity and extrapolating on past progress.
+</p>
+
+<h2>Gathering Stories</h2>
+<p>
+	To set the tone for the remainder of the article, we'll explain a bit about the differences between estimation in Waterfall and Agile contexts. Most Waterfall projects typically begin with a multi-week-long estimation phase, consisting of enumerating every project requirement, constructing detailed stories and dependency graphs, and figuring out exactly who should work on each story and for how long. Only once all of this legwork is done can a final, emerging estimation of when the project will be completed be constructed.
+</p>
+
+<p>
+	Although this strategy is extremely thorough, it suffers from a few notable weaknesses (<a href="#citation-sliger">Sliger</a>):
+	<ul>
+		<li>
+			It's heavy in overhead
+			<ul>
+				<li>
+					Beginning new projects requires extensive planning and communication between team members and stakeholders
+				</li>
+			</ul>
+		</li>
+
+		<li>
+			It isn't universally applicable
+			<ul>
+				<li>
+					Reliable information about how long stories will take to complete or even how to deconstruct requirements into stories isn't always available
+				</li>
+			</ul>
+		</li>
+
+		<li>
+			It's ill-adapted to change
+			<ul>
+				<li>
+					Because constructing such a thorough plan is a heavy undertaking, changing requirements or circumstances inevitably invalidating it means wasted effort
+				</li>
+			</ul>
+		</li>
+	</ul>
+</p>
+
+<p>
+	One solution is to adopt a top-down, rather than bottom-up approach to story gathering. Under this paradigm, the team assembles “just enough to get started, with a plan to incorporate more knowledge as work outputs evolve, [allowing] the project team to react quickly” (<a href="#citation-sliger">Sliger</a>).
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img mw-100"
+		src="{{ url_for('static', filename='images/dilbert_estimating_cost_comic.png') }}"
+		alt="A Dilbert comic illustrating an interaction between an employee and his boss on cost estimation.">
+
+	<figcaption class="figure-caption">
+		This Dilbert comic encapsulates the crux of the problem with Waterfall estimation.
+	</figcaption>
+</figure>
+
+<h2>Assigning Point Values</h2>
+<p>
+	Once stories have been decided on, their relative implementation difficulty can be deduced, which is usually a good proxy for relative time requirement. Engineers (and no one else) assign each story a point value–traditionally a Fibonacci number:
+</p>
+
+<p>1, 2, 3, 5, 8, 13, 21, 34, …</p>
+<p>
+	It's important to note that point values are unitless (i.e. they shouldn't be converted to any unit of time). The point of estimating them isn't to directly estimate the time required to complete a story; rather, they should vary by team, indicate relative difficulty and, as we'll see later, are helpful in tracking velocity (which <em>can</em> be used to estimate time requirements) (<a href="#citation-sliger">Sliger</a>).
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://joshmartindev.files.wordpress.com/2022/04/story_point_matrix.png"
+		alt="A matrix whose x-axis is uncertainty, whose y-axis is complexity, and whose values are story point values.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">A helpful matrix for commonly assigned point values.</div>
+		<div>
+			Sourced from <a href="https://joshmartindev.com/2022/04/29/how-to-begin-story-point-estimating/">https://joshmartindev.com/2022/04/29/how-to-begin-story-point-estimating/</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<h2>Converging on Point Values</h2>
+<p>
+	In order to move on to the next stage in the estimation process, teams must assign point values collaboratively so they can agree on a rating for every story. Although this task might seem trivial, there are many approaches to converging on point value assignment. We summarize some of the most common techniques below.
+</p>
+
+<h3>Planning Poker</h3>
+<p>
+	Planning poker is a toy game and convergence activity that can facilitate team discussion around story point values. In the game, each engineer is given a set of cards, each corresponding to a reasonable point value. Then, the team lead recites various stories, explaining their story statements and acceptance criteria. Engineers pick a card they feel best represents the effort required to complete the story, and, at once, reveal their cards. Then, constructive discussions can be had about why certain point values were chosen, and agreements can be made on what the “best” point value is–whether that's defined in terms of conservativeness, popular vote, a mixture of both, etc. (<a href="#citation-preston">Preston</a>).
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img mw-100"
+		src="https://upload.wikimedia.org/wikipedia/commons/e/eb/CrispPlanningPokerDeck.jpg"
+		alt="The deck of a game of planning poker.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">The deck of a game of planning poker.</div>
+		<div>
+			Sourced from <a href="https://commons.wikimedia.org/wiki/File:CrispPlanningPokerDeck.jpg">https://commons.wikimedia.org/wiki/File:CrispPlanningPokerDeck.jpg</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<h3>Affinity Mapping</h3>
+<p>
+	Unlike Planning Poker, affinity mapping relies less on pre-concealed, individual judgements about stories' difficulty and instead takes on a more collective form. Teams practicing affine mapping construct a continuous scale (or discrete set of buckets) encompassing varying levels of difficulty. Then, team members take turns picking stories and placing them on the scale, conversing along the way about why they made the decision they did and debating not about the stories' absolute placements, but their relative placements (<a href="#citation-preston">Preston</a>).
+</p>
+
+<p>
+	Affine mapping can be preferable for projects whose components are more amenable to comparison than absolute estimation. It can also be easier, since it relies on comparison, initially against a pre-chosen baseline that's changeable at will.
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blog/2017Q1/affinity-diagram3.png"
+		alt="An affinity map in which sticky notes have been placed into different categories.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">An affinity map.</div>
+		<div>
+			Sourced from <a href="https://www.lucidchart.com/blog/affinity-diagrams-your-key-to-more-creative-problem-solving">https://www.lucidchart.com/blog/affinity-diagrams-your-key-to-more-creative-problem-solving</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<h3>The Three-Point Method</h3>
+<p>
+	The three-point method is another converging activity whose conclusions are usually more telling than those of the activities we've discussed so far. This is because rather than having engineers estimate a static value and discuss, the three-point method requires them to estimate three values (<a href="#citation-guthrie">Guthrie</a>):
+	<ol>
+		<li>A pessimistic estimate (<var>b</var>)</li>
+		<li>A realistic estimate (<var>m</var>)</li>
+		<li>An optimistic estimate (<var>a</var>)</li>
+	</ol>
+</p>
+
+<p>
+	Once that's done, the values are combined to produce a single estimation using one of two distributions (<a href="#citation-guthrie">Guthrie</a>):
+	<ol>
+		<li>The beta distribution: <var>(b + 4m + a) / 6</var></li>
+		<li>The triangular distribution: <var>(b + m + a) / 3</var></li>
+	</ol>
+</p>
+
+<h3>Estimating Velocity and Time to Completion</h3>
+<p>
+	Now that point values have been assigned and agreed upon, the team can proceed with developing an initial prototype and computing their velocity. To do the latter, the team divides the number of story points they cumulatively tackled by the amount of time they required to do so. Ideally, the time period should be long enough to produce a somewhat accurate estimate.
+</p>
+
+<p>
+	Then, the team extrapolates, dividing their velocity by the percentage of the project they've completed (in story points) to yield an estimate of how much more time they require. The team should regularly compute this value and adjust the rate at which they work to meet deadlines agreed upon with stakeholders.
+</p>
+
+<h2>Works Cited</h2>
+
+<p id="citation-guthrie" class="citation-source">
+	Guthrie, Georgina. “How 3-point estimating can improve project planning and resource allocation.” Nulab, 17 March 2023, https://nulab.com/learn/project-management/3-point-estimating/. Accessed 1 October 2023.
+</p>
+
+<p id="citation-preston" class="citation-source">
+	Preston, Robert. “10 Agile Estimation Techniques for Businesses To Use.” Indeed, 3 February 2023, https://www.indeed.com/career-advice/career-development/agile-estimation-techniques. Accessed 1 October 2023.
+</p>
+
+<p id="citation-sliger" class="citation-source">
+	Sliger, Michele. “Agile estimation techniques.” PMI, 23 October 2012, https://www.pmi.org/learning/library/agile-project-estimation-techniques-6110. Accessed 1 October 2023.
+</p>
