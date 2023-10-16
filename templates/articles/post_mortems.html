@@ -1,0 +1,147 @@
+<h2>The Importance of Post-Mortems</h2>
+<p>
+	In any discipline, it's important that failure (and even success in many cases) is followed by reflection–allowing those who failed to improve their policy, those who haven't yet failed to benefit from the learnings of those who have, and stakeholders to be made aware of that failure for the sake of transparency.
+</p>
+
+<p>
+	Software engineering is no exception. In fact, the stakes for failure are arguably higher when its subject is software, due to its broad scope and the precise nature of its design. Although software engineers are primarily responsible for the improvement reflection entails, project managers are well-suited to facilitating the process. By scheduling and facilitating reflective sessions (colloquially referred to as post-mortems), being involved in the construction of preventative and reactive action items, and seeing that those items are promptly integrated into sprintwork while being balanced with other important initiatives, project managers practice project quality management, specifically controlling quality.
+</p>
+
+<p>
+	It's important to note that post-mortems are an Agile concept by definition, since they constitute reacting to unexpected (and unwanted) changes, interrupting planned work to prevent future losses, and updating processes under a pragmatic, transparent culture.
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://p0.pikist.com/photos/193/737/plant-green-nature-close-up-dead-tree-stump-live-forest-live-new-tree.jpg"
+		alt="A newborn plant growing out of a rotted tree stump.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">
+			According to Site Reliability Engineers at Google, post-mortems were derived from the medical and aviation industries, in which system failure can literally kill (Lunney and Lueder). By reflecting, however, revisions to processes and code can initiate rebirth.
+		</div>
+
+		<div>
+			Sourced from <a href="https://www.pikist.com/free-photo-vkbgm">https://www.pikist.com/free-photo-vkbgm</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<h2>Preparing for the Post-Mortem</h2>
+<p>
+	Post-mortems are expensive operations because they necessitate pulling many individuals–even those not directly involved in the production incident–out of whatever they're working on and together to brainstorm. Their outputs–action items–are even more expensive because of their urgency and the delay their resolution imposes on existing sprintwork. For that reason, it's important to come prepared to post-mortems and to get them right, which means following a rigid schedule and demanding clear-cut action items.
+</p>
+
+<p>
+	Ideally, post-mortems should be scheduled when the incident is fresh in people's minds, so ideally no more than 1-2 days after the incident. With extreme incidents–like platform downtime–it can even be beneficial to require them to occur within 24 hours of the incident's resolution. To enforce this, on-call teams can declare a member responsible for scheduling during the incident, ensuring that no one forgets to hold a post-mortem.
+</p>
+
+<p>
+	When scheduling, it's important to include a diverse set of individuals capable of arriving at an appropriate solution with their mutually complementary expertise, which, according to Lucidchart, includes those “close to the incident and the resulting response”, “decision-makers”, “stakeholders[, and] managers” (<a href="#citation-lucidchart">Lucid Content Team</a>).
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://incident.io/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Foqy5aexb%2Fproduction%2Fc21e16acddb52b730d834cc111035074f07cf8ac-1456x816.png&w=1080&q=75"
+		alt="Professionals sitting and talking about a table on which scattered papers lie.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">
+			A good post-mortem should look like a roundtable in which individuals are reviewing, discussing, and planning, not lamenting or blaming (which we elaborate on in the next section).
+		</div>
+
+		<div>
+			Sourced from <a href="https://incident.io/blog/a-guide-to-post-mortem-meetings">https://incident.io/blog/a-guide-to-post-mortem-meetings</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<p>
+	The New Stack notes that it's important for the individual closest to the event (usually the person, if applicable, who caused it) to come prepared with answers to a few questions that will guide the discussion (<a href="#citation-tidwell">Tidwell</a>):
+
+	<ol>
+		<li>“What was the intended outcome?”</li>
+		<li>“What actually happened?”</li>
+		<li>“Why did that happen?”</li>
+	</ol>
+</p>
+
+<p>
+	To add onto that, I think the second question should be considered in two distinct lights:
+
+	<ol>
+		<li>What was the exact code change that caused the incident?</li>
+		<li>What were the faulty processes that enabled that code change to be released and possibly stifled the detection and/or handling of the incident?</li>
+	</ol>
+</p>
+
+<p>
+	It's also important to document what the impact to stakeholders (users, investors, etc.) was, for the purposes of prioritizing action items and deciding whether the incident should be publicized and users reached out to.
+</p>
+
+<h2>Conducting the Post-Mortem</h2>
+<p>
+	Effectively holding a post-mortem begins with adopting a functional post-mortem culture. Because post-mortems are almost always high-stress, suppressing the urge to lament over losses or assign blame (i.e. adopting a blameless culture) is crucial. Site reliability engineers at Google point out that assigning blame has the effect of disincentivizing awareness of the issue at hand, and could instead incentivize those who caused the incident to not reveal its true magnitude or think up the best solutions (<a href="#citation-lunney-lueder">Lunney and Lueder</a>). A more positive culture assumes everyone did their best given the knowledge they had then, and that the failure is systemic in nature.
+</p>
+
+<p>
+	In doing so, post-mortems take on an objective form in which those involved (and others who might benefit from their learnings) ask themselves:
+
+	<ul>
+		<li>What's a more long-term fix to the issue at hand?</li>
+		<li>
+			What could've made the issue more visible to on-call engineers (i.e. what could've made the failure “loud and fast”?)
+		</li>
+
+		<li>What can prevent similar issues moving forwards?</li>
+		<li>
+			What action items are necessary to realize plans made, minimizing the probability of a similar issue arising in the future?
+		</li>
+	</ul>
+</p>
+
+<p>
+	To facilitate this, engineers can work with project managers to construct detailed timelines recounting the incident. Additionally, project managers can gather lessons learned by engineers and convert them into action items–stories with higher-than-average priority designed to interrupt sprint work in favor of correcting faulty systems and preventing further losses.
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://akfpartners.com//uploads/blog/dreamstime_m_50964235.jpg"
+		alt="The five stages of a post-mortem: &quot;Pre-Post-Mortem&quot;, &quot;Timeline&quot;, &quot;Issues&quot;, &quot;Actions&quot;, and &quot;Closeout&quot;.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">
+			A good post-mortem should look like the graphic above. Project managers are most useful in the last two stages involving actions and post-post-mortem communication and planning.
+		</div>
+
+		<div>
+			Sourced from <a href="https://akfpartners.com/growth-blog/learning-from-failure-conducting-postmortems">https://akfpartners.com/growth-blog/learning-from-failure-conducting-postmortems</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<h2>What to Do Post-Post-Mortem</h2>
+<p>
+	Although project managers can be helpful in scheduling post-mortems and balancing them with teamwork, they're most useful after the post mortem, when they create stories, assign story owners, and work those stories into the team's schedule. According to The New Stack, it's important that tickets created from post-mortems be assigned owners immediately and that they take precedence over all other sprint work. If emergency stories like these aren't completed in-time, the inciting issue could re-occur, offsetting important work and postponing deadlines even more. In addition, a “process owner” should be assigned, they claim, ensuring the resolution of blockers encountered by the engineer responsible for carrying out action items (<a href="#citation-tidwell">Tidwell</a>).
+</p>
+
+<p>
+	Engineers may also approach project managers with planned architectural changes or reductions in tech debt that can minimize the probability of failure even more. Although these aren't as urgent as more immediate post-mortem action items, time should be made for them and project managers should be diligent about relaying their importance to product owners.
+</p>
+
+<h2>Works Cited</h2>
+
+<p id="citation-lucidchart" class="citation-source">
+	Lucid Content Team. “How to Host an Effective Downtime Postmortem.” Lucidchart Blog, Lucidchart, https://www.lucidchart.com/blog/how-to-host-a-downtime-postmortem. Accessed 15 October 2023.
+</p>
+
+<p id="citation-lunney-lueder" class="citation-source">
+	Lunney, John, and Sue Lueder. “Postmortem Culture: Learning from Failure.” Site Reliability Engineering, Google, 23 March 2016, https://sre.google/sre-book/postmortem-culture/. Accessed 15 October 2023.
+</p>
+
+<p id="citation-tidwell" class="citation-source">
+	Tidwell, Steve. “Top 12 Best Practices for Better Incident Management Postmortems.” The New Stack, The New Stack, 2 December 2020, https://thenewstack.io/top-12-best-practices-for-better-incident-management-postmortems/. Accessed 15 October 2023.
+</p>
