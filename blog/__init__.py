@@ -81,8 +81,11 @@ class ArticleRepository:
 		repository = self
 
 		class ArticleConverter(werkzeug.routing.BaseConverter):
-			def to_python(self, subpath: str) -> typing.Optional[Article]:
-				return repository.articles_by_subpath.get(subpath)
+			def to_python(self, subpath: str) -> Article:
+				if subpath not in repository.articles_by_subpath:
+					raise werkzeug.routing.ValidationError
+
+				return repository.articles_by_subpath[subpath]
 
 			def to_url(self, article: Article) -> str:
 				return article.subpath
