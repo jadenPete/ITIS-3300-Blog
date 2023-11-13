@@ -1,0 +1,142 @@
+<h2>Introduction</h2>
+<p>
+	Every web-based application, whether it's a hobby project designed by a novice or a massive commercial platform maintained by a corporation, needs to be hosted somewhere. Although the decision of where and on what equipment to host services may seem like a purely developmental one, it's especially important for a project manager to consider–and continually reconsider in the case of Agile–since it can significantly affect the project's total cost and timeline, and the incremental cost of adding new features.
+</p>
+
+<p>
+	Ultimately, project managers should work closely with engineers to decide on the best option, which, as we'll see, will vary from project to project according to those projects' architecture, complexity, geographic reach, budget, etc.. We'll cover the core implications of cloud hosting vs. self-hosting, advise teams on how to best choose cloud providers, and inform them of the different classes of cloud service provisioning.
+</p>
+
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://blog.albertsonsmarket.com/hs-fs/hubfs/Apple%20Variety.jpeg?width=2000&name=Apple%20Variety.jpeg"
+		alt="A table holding a selection of apple cultivars.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">
+			To an outsider, a shopper selecting one of many apple varieties over the others might seem arbitrary and pointless. Nonetheless, apples vary in their taste, texture, size, and cost. In a similar vein, so do cloud providers, and it's important for project managers to work closely with engineers in order to arrive at the best option.
+		</div>
+
+		<div>
+			Sourced from <a href="https://blog.albertsonsmarket.com/different-types-of-apples">https://blog.albertsonsmarket.com/different-types-of-apples</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<h2>When to Outsource Hosting</h2>
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://www.bhg.com/thmb/6mjEHdY5PdER6AG65uEvSXdxJYo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/tudor-style-home-exterior-lush-landscaping-628aa053-0b135bb1d98a4d01974289c7d2c70217.jpg"
+		alt="A tudor-style house.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">
+			Choosing to self-host is much like the decision of homeownership for the development team.
+		</div>
+
+		<div>
+			Sourced from <a href="https://www.bhg.com/home-improvement/exteriors/curb-appeal/house-styles/">https://www.bhg.com/home-improvement/exteriors/curb-appeal/house-styles/</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<p>
+	The decision to self-host or to delegate that task to a cloud provider is, like many business questions, nuanced. As we'll see, it's less of a question of possibility (since the software will invariably execute the same) and more of a classic vertical integration problem–raising questions of upfront cost vs. incremental cost, maintenance burden, etc..
+</p>
+
+<p>
+	As a general rule of them, those contemplating this question should ask themselves where they stand on the following comparisons.
+</p>
+
+<ul>
+	<li>Upfront cost vs. incremental cost</li>
+	<li>Hardware reuse vs. easy provisioning</li>
+	<li>High control vs. low maintenance</li>
+	<li>Low latency vs. high bandwidth</li>
+</ul>
+
+<p>
+	Arvind Kumar, in an article written for hobbyists but whose points apply equally to commercial applications, delves into these factors, pointing out that those qualities on the left are generally more representative of a self-hosted solution and those on the right of a cloud-hosted one (<a href="#citation-kumar">Kumar</a>).
+</p>
+
+<p>
+	Like homeownership, self-hosting as a rule of thumb brings more flexibility and a lower monthly payment, but a higher upfront cost and higher risk. Gauging which of those benefits is more important is the responsibility of the development team and should strictly be considered an implementation of the value judgements defined by business leaders.
+</p>
+
+<h2>Cloud Hosting Models</h2>
+<figure class="figure my-4">
+	<img
+		class="figure-img col-lg-6"
+		src="https://lh3.googleusercontent.com/Zpw-v4ZOiAkbLm9ARSl68tGaZFYsFsz1ABwRbl8Cj_ozj12jCTPmgVGKBARz3Xwum1CUsMQ7Hog=e14-rj-sc0xffffff-h1000-w1000"
+		alt="A table comparing the offerings of different cloud hosting models.">
+
+	<figcaption class="figure-caption">
+		<div class="text-light">A helpful comparison of cloud hosting models.</div>
+		<div>
+			Sourced from <a href="https://cloud.google.com/learn/paas-vs-iaas-vs-saas">https://cloud.google.com/learn/paas-vs-iaas-vs-saas</a>.
+		</div>
+	</figcaption>
+</figure>
+
+<p>
+	If a cloud provider has been gone with, a cloud hosting model must be chosen before a provider can, since the offerings of different providers differ, and not every provider supports the same hosting paradigms. Although there are countless variants of cloud hosting services (hence the ubiquity of the “as a service” suffix), we'll cover the following, which are listed in ascending degree of abstraction and whose differences are analogous to those between the cloud hosting option and self-hosting option, but on a smaller scale.
+</p>
+
+<ol>
+	<li>Infrastructure as a Service (IaaS)</li>
+	<li>Containers as a Service (CaaS)</li>
+	<li>Platform as a Service (PaaS)</li>
+	<li>Software as a Service (SaaS)</li>
+</ol>
+
+<p>
+	According to Google Cloud, a dominant provider in the space of cloud computing, the first class, Infrastructure as a Service, refers to cloud offerings that exclusively provide the infrastructure (i.e. servers, networking stack, geographic locality, etc.) and guarantee nothing on top of that. For most large-scale companies, this is the most preferable option because it's the most flexible, yet continues to carry all of the benefits of cloud hosting (<a href="#citation-google">Google</a>).
+</p>
+
+<p>
+	Moving up the stack, Containers as a Service provide the operating system, allowing customers to easily provision containers (e.g. Kubernetes containers) that seamlessly execute alongside other customers' containers. Identical to our cloud hosting to self-hosting analogy, Google analogizes CaaS to renting and IaaS to buying (<a href="#citation-google">Google</a>).
+</p>
+
+<p>
+	Platform as a Service is even simpler, allowing engineers to upload their code, with the underlying framework or runtime being provided by the provider. This option is almost always reserved for hobby projects or teams who cannot afford to invest in containerizing their applications.
+</p>
+
+<p>
+	Software as a Service is less so geared towards software-building teams and more so towards the end-user, since it refers to completed software hosted on the cloud, not a method of hosting that software.
+</p>
+
+<p>
+	Once the project's hosting needs are well-defined, it's time to choose a provider whose advertised feature set and cost align best with the development team's needs. As simple as it may seem, the space is difficult to navigate due to how different different providers' offerings are. Teams should watch out for provider-specific marketing verbiage despite the underlying functionality being the same (e.g. AWS Lambdas/Google Cloud Functions), and vendor lock-in, both of which can artificially limit their options.
+</p>
+
+<p>
+	On the topic, Forbes notes a few considerations of prime importance (<a href="#citation-haber">Haber</a>):
+</p>
+
+<ul>
+	<li>
+		Provided Technology (e.g. do they offer relational databases, or just document databases?)
+	</li>
+
+	<li>Security (i.e. what's their security track record?)</li>
+	<li>Terms and Pricing (i.e. how much does it cost, both monetarily and contractually?)</li>
+	<li>Reliability (e.g. what's their average uptime?)</li>
+	<li>Performance (i.e. what performance-related numbers do they advertise?)</li>
+	<li>Fault-Tolerance (e.g. do they offer worldwide availability and/or off-site backups?)</li>
+</ul>
+
+<h2>Works Cited</h2>
+
+<p id="citation-google" class="citation-source">
+	Google. “PaaS vs IaaS vs SaaS: What's the difference?” Google Cloud, Google, https://cloud.google.com/learn/paas-vs-iaas-vs-saas. Accessed 12 November 2023.
+</p>
+
+<p id="citation-haber" class="citation-source">
+	Haber, Morey. “Selecting A Cloud Service Provider: What To Look Out For.” Forbes, 6 March 2023, https://www.forbes.com/sites/forbestechcouncil/2023/03/06/selecting-a-cloud-service-provider-what-to-look-out-for/. Accessed 12 November 2023.
+</p>
+
+<p id="citation-kumar" class="citation-source">
+	Kumar, Arvind. “The self-hosted dilemma - Home server or the cloud? | arvind.io.” Arvind Kumar, 3 July 2020, https://arvind.io/posts/self-hosted-home-server-vs-cloud/. Accessed 12 November 2023.
+</p>
